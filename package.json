@@ -1,0 +1,26 @@
+{
+  "name": "luaumin",
+  "version": "1.0.0",
+  "description": "luamin but for luau for use in nodejs/typescript made using loretta child binding",
+  "main": "luaumin.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xNasuni/luaumin.git"
+  },
+  "keywords": [
+    "luau",
+    "minify",
+    "minifier"
+  ],
+  "author": "xNasuni",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xNasuni/luaumin/issues"
+  },
+  "homepage": "https://github.com/xNasuni/luaumin#readme",
+  "dependencies": {
+  }
+}
