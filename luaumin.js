@@ -1,4 +1,4 @@
-const { execSync } = require('child_process');
+const { spawnSync } = require('child_process');
 const path = require('path');
 
 function minifyLuau(source) {
@@ -6,10 +6,17 @@ function minifyLuau(source) {
     
     try {
         const base64LuaCode = Buffer.from(source).toString('base64');
+        const child = spawnSync(exePath, [], {
+            input: base64LuaCode,
+            encoding: "utf-8"
+        })
 
-        let output = execSync(`${exePath} ${base64LuaCode}`).toString();
+        if (child.error) {
+            console.error('Error spawning child process:', child.error);
+            return null;
+        }
 
-		const minifiedOutput = JSON.parse(output.replace(/\s+/g, ' ').trim());
+        const minifiedOutput = JSON.parse(child.stdout.replace(/\s+/g, ' ').trim());
 
 		if (minifiedOutput.error) {
 			console.warn("Could not minify:", minifiedOutput.error)
